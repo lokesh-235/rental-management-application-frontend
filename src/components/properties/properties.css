@@ -1,0 +1,45 @@
+.featured-properties h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.property-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.property-info {
+  padding: 15px;
+}
+.property-info h3 {
+  margin: 0 0 5px 0;
+}
+.property-info .price {
+  font-weight: bold;
+  color: #4f46e5;
+  margin-bottom: 10px;
+}
+.property-info button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.property-info button:hover {
+  background-color: #6366f1;
+}
