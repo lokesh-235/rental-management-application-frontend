@@ -1,0 +1,9 @@
+.tenant-profile {
+  max-width: 500px;
+}
+
+.profile-card {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+}

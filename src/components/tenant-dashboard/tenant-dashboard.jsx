@@ -1,81 +1,64 @@
 import React, { useState } from "react";
 import "./tenant-dashboard.css";
-import Properties from "../properties/properties";
-import SearchForm from "../search-form/search-form";
+import Sidebar from "./Sidebar/sidebar";
+import RecommendedProperties from "./main-content/recommended-properties/RecommendedProperties";
+import SavedProperties from "./main-content/saved-properties/saved-properties";
+import CurrentRentals from "./main-content/current-rentals/current-rentals";
+import TenantProfile from "./main-content/tenant-profile/tenant-profile";
+
 
 export default function TenantDashboard() {
   const user = JSON.parse(sessionStorage.getItem("user"));
-  const [menuOpen, setMenuOpen] = useState(false);
 
-  let logOut = async () => {
-    let res = await fetch("http://localhost:8080/api/users/logout",{
-      method : "POST"
-    })
-  }
-
-  function logout() {
-    logOut();
-    sessionStorage.clear();
-    window.location.href = "/login";
-  }
+  const [activeTab, setActiveTab] = useState("recommended");
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="tenant-page">
-      
-      {/* Top Bar */}
-      <div className="tenant-header">
-        <h2>Tenant Dashboard</h2>
+    <div className="tenant-dashboard">
 
-        <div className="user-icon-area">
-          <div className="user-icon" onClick={() => setMenuOpen(!menuOpen)}>
-            {user.userName.charAt(0).toUpperCase()}
+      {/* Sidebar */}
+      <Sidebar
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
+
+      {/* Main Content */}
+      <main
+        className={`main-content ${
+          sidebarOpen ? "sidebar-open" : "sidebar-closed"
+        }`}
+      >
+        {/* Header */}
+        <div className="tenant-header">
+          {!sidebarOpen && (
+            <button
+              className="menu-btn"
+              onClick={() => setSidebarOpen(true)}
+            >
+              ☰
+            </button>
+          )}
+
+          <h2>Tenant Dashboard</h2>
+
+          <div
+            className="user-icon"
+            onClick={() => {setActiveTab("profile");setSidebarOpen(true)}}
+            title="View Profile"
+          >
+              {user.userName.charAt(0).toUpperCase()}
           </div>
 
-          {menuOpen && (
-            <div className="dropdown-menu">
-              <p><strong>{user.userName}</strong></p>
-              <p>Role: {user.role}</p>
-              <hr />
-              <button onClick={logout}>Logout</button>
-            </div>
-          )}
         </div>
-      </div>
 
-      {/* Search Section */}
-      <SearchForm />
-
-      {/* Saved Properties */}
-      <section className="section">
-        <h3>Saved Properties</h3>
-        {/* <Properties/>  */}
-      </section>
-
-      {/* Current Renting Property */}
-      <section className="section">
-        <h3>Current Renting</h3>
-
-        <div className="rent-box">
-          <h4>Flat A-202, Skyline Residency</h4>
-          <p><b>Monthly Rent:</b> ₹12,000</p>
-          <p><b>Due Date:</b> 5th of every month</p>
-          <button className="pay-btn">Pay Rent</button>
-        </div>
-      </section>
-
-      {/* Recommended */}
-      <section className="section">
-        <h3>Recommended For You</h3>
-        <Properties />
-      </section>
-
-      {/* Footer */}
-      <footer>
-        <div className="container text-center">
-          &copy; 2025 Rental Management. All rights reserved.
-        </div>
-      </footer>
-
+        {/* Switch Sections */}
+        {activeTab === "recommended" && <RecommendedProperties />}
+        {activeTab === "saved" && <SavedProperties />}
+        {activeTab === "current" && <CurrentRentals />}
+        {activeTab === "profile" && <TenantProfile />}
+      </main>
     </div>
   );
 }

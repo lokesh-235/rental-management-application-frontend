@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTenantRequests, approveRequest, rejectRequest } from "../../../apis/apis";
+import { getTenantRequests} from "../../../apis/apis";
 import "./tenant-requests.css";
 import Requests from "../requests/requests";
 

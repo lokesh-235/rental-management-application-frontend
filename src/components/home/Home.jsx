@@ -13,7 +13,7 @@ const Home = () => {
       <NavBar/>
 
       {/* Hero Section */}
-      <SearchForm/>
+      {/* <SearchForm/> */}
 
       {/* Featured Properties */}
       <Properties/>

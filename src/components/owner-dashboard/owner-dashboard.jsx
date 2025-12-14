@@ -38,7 +38,7 @@ export default function OwnerDashboard() {
           {view === "maintenance" && <Maintenance />}
           {view === "analytics" && <Analytics />}
         </main>
-
+        {/* <h1>{JSON.stringify(user)}</h1> */}
       </div>
     </div>
   );

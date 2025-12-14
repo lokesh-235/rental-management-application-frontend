@@ -40,7 +40,16 @@ function App() {
 
       {/* <Route path="*" element={<h1>an authorized</h1>}></Route> */}
     </BrowserRouter>
-    
+        // <form
+        //   action="http://localhost:8080/api/images/upload/1"
+        //   method="POST"
+        //   enctype="multipart/form-data"
+        // >
+        //   <input type="file" name="image" />
+        //   <button type="submit">Upload</button>
+        // </form>
+
+
   );
 }
 

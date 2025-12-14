@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './properties.css';
 import { getProperties } from '../../apis/apis';
+import SearchForm from '../search-form/search-form';
 
 export default function Properties() {
 
@@ -21,6 +22,9 @@ export default function Properties() {
   }, []);
 
   return (
+    <>
+    <SearchForm setProperties = {setProperties}/>
+
     <section className="featured-properties container">
       <h2>Properties</h2>
 
@@ -32,12 +36,12 @@ export default function Properties() {
             <img
               src={
                 property.images && property.images.length > 0
-                  ? property.images[0]
+                 ? "http://localhost:8080/"+property.images[0].imageUrl
                   : "property.jpg"
               }
               alt={property.title}
             />
-
+            {/* <div>{JSON.stringify(property.images)}</div> */}
             <div className="property-info">
               <h3>{property.title}</h3>
               <p>{property.address}, {property.city}, {property.state}</p>
@@ -52,5 +56,7 @@ export default function Properties() {
 
       {!isLoaded && <h1>Loading...</h1>}
     </section>
+
+    </>
   );
 }
