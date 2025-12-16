@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL : "http://localhost:8080",
+    baseURL : import.meta.env.VITE_API_URL
+,
 });
 export const getProperties = () => API.get("/api/properties")
 
@@ -13,8 +14,13 @@ export const approveRequest = (requestId) => API.put(`/api/properties/owner/${re
 export const rejectRequest = (requestId) => API.put(`/api/properties/owner/${requestId}/reject`);
 export const getTenants = (ownerId) => API.get(`/api/properties/owner/active-rentals/${ownerId}`);
 export const addProperty = (data) => API.post(`api/properties`,data);
-export const editProperty = (propertyId,data) => API.put(`api/properties/${propertyId}`,data);
-export const deleteProperty = (propertyId) => API.delete(`api/properties/${propertyId}`);
-export const uploadFile = (file,propertyId) => API.post(`api/properties/images/upload/${propertyId}`,file);
-export const getPropertiesByOwnerId = (ownerId) => API.get(`api/properties/owner/${ownerId}`);
-export const searchProperties = (data) => API.post(`api/properties/searchProperties`,data);
+export const editProperty = (propertyId,data) => API.put(`/api/properties/${propertyId}`,data);
+export const deleteProperty = (propertyId) => API.delete(`/api/properties/${propertyId}`);
+export const uploadFile = (file,propertyId) => API.post(`/api/properties/images/upload/${propertyId}`,file);
+export const getPropertiesByOwnerId = (ownerId) => API.get(`/api/properties/owner/${ownerId}`);
+export const searchProperties = (data) => API.post(`/api/properties/searchProperties`,data);
+
+export const getOwnerDetailsByPropertyId = (propertyId) => API.get(`/api/properties/property/owner/${propertyId}`);
+
+export const postRequest = (data) => API.post(`api/tenant/requests`,data);
+export const getTenantRequestsByTenantId = (tenantId) => API.get(`api/tenant/requests/${tenantId}`);

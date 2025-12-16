@@ -85,3 +85,9 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+@media (max-width:800px) {
+  .owner-nav{
+    display: none;
+  }
+}

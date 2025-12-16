@@ -2,11 +2,16 @@ import { useEffect, useState } from 'react';
 import './properties.css';
 import { getProperties } from '../../apis/apis';
 import SearchForm from '../search-form/search-form';
+import PropertyCard from '../property-card/property-card';
+import { connectWebSocket, disconnectWebSocket } from '../../web-scokets/refresh-properties';
+
 
 export default function Properties() {
 
   const [properties, setProperties] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isViewDetails,setIsViewDetails] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   async function loadProperties() {
     const res = await getProperties();
@@ -18,8 +23,22 @@ export default function Properties() {
   }
 
   useEffect(() => {
+
     loadProperties();
+
+    connectWebSocket(() => {
+      loadProperties();
+    });
+
+    return () => {
+      disconnectWebSocket();
+    };
   }, []);
+
+  let handleViewDetails = () => {
+    //  console.log('view details');
+    setIsViewDetails(true);
+  }
 
   return (
     <>
@@ -30,13 +49,13 @@ export default function Properties() {
 
       <div className="property-grid">
         {properties.map((property) => (
-          <div key={property.propertyId} className="property-card">
+          <div key={property.propertyId} className="property-cards">
 
             {/* IMAGE HANDLING */}
             <img
               src={
                 property.images && property.images.length > 0
-                 ? "http://localhost:8080/"+property.images[0].imageUrl
+                 ? `${API_URL}/`+property.images[0].imageUrl
                   : "property.jpg"
               }
               alt={property.title}
@@ -48,7 +67,9 @@ export default function Properties() {
 
               <p className="price">₹{property.rentAmount} / month</p>
 
-              <button>View Details</button>
+              <button onClick={handleViewDetails}>View Details</button>
+
+              {isViewDetails && <PropertyCard property={property}     onClose={() => setIsViewDetails(false)}/>}
             </div>
           </div>
         ))}

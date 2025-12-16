@@ -1,5 +1,6 @@
 import React from "react";
 import "./sidebar.css";
+import { logOut } from "../../../apis/apis";
 
 export default function Sidebar({
   activeTab,
@@ -7,6 +8,14 @@ export default function Sidebar({
   sidebarOpen,
   setSidebarOpen,
 }) {
+
+  let handleLogout = () => {
+    
+    sessionStorage.clear();
+    window.location.href = "/login";
+  
+  }
+
   return (
     <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
       <div className="sidebar-header">
@@ -42,8 +51,17 @@ export default function Sidebar({
           className={activeTab === "profile" ? "active" : ""}
           onClick={() => setActiveTab("profile")}
         >
-          tenant profile
+          Tenant Profile
         </li>
+
+        <li
+          className={activeTab === "requested-properties" ? "active" : ""}
+          onClick={() => setActiveTab("requested-properties")}
+        >
+         Requested Properties
+        </li>
+
+        <button className='logoutBtn' onClick={handleLogout}>logout</button>
       </ul>
     </aside>
   );

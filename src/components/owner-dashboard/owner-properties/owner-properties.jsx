@@ -98,9 +98,9 @@ export default function OwnerProperties({owner}) {
     // await fetch(`http://localhost:8080/api/properties/${id}`, {
     //   method: "DELETE"
     // });
-    const res = deleteProperty(id);
+    const res = await deleteProperty(id);
 
-    loadProperties();
+    await loadProperties();
   }
 
   // Edit Property

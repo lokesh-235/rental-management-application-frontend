@@ -5,6 +5,7 @@ import RecommendedProperties from "./main-content/recommended-properties/Recomme
 import SavedProperties from "./main-content/saved-properties/saved-properties";
 import CurrentRentals from "./main-content/current-rentals/current-rentals";
 import TenantProfile from "./main-content/tenant-profile/tenant-profile";
+import RequestedProperties from "./main-content/requested-properties/requested-properties";
 
 
 export default function TenantDashboard() {
@@ -58,6 +59,7 @@ export default function TenantDashboard() {
         {activeTab === "saved" && <SavedProperties />}
         {activeTab === "current" && <CurrentRentals />}
         {activeTab === "profile" && <TenantProfile />}
+        {activeTab === "requested-properties" && <RequestedProperties tenantId={user.userId}/>}
       </main>
     </div>
   );

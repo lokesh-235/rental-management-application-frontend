@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "./owner-header.css";
+import { logOut } from "../../../apis/apis";
 
-export default function OwnerHeader({ user, onNav, activeView }) {
+export default function OwnerHeader({ user, onNav, activeView ,onMenu}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  function logout() {
+   function handleLogout() {
     sessionStorage.clear();
+    logOut();
     window.location.href = "/login";
   }
 
   return (
     <header className="owner-header">
+      <button className="menu-btn" onClick={onMenu}>☰</button>
       <div className="owner-brand">Owner Dashboard</div>
 
       <nav className="owner-nav">
@@ -65,7 +68,7 @@ export default function OwnerHeader({ user, onNav, activeView }) {
             <p className="owner-menu-item"><b>{user?.name}</b></p>
             <p className="owner-menu-item">{user?.email}</p>
             <div className="owner-menu-divider"></div>
-            <button className="owner-menu-logout" onClick={logout}>
+            <button className="owner-menu-logout" onClick={handleLogout}>
               Logout
             </button>
           </div>

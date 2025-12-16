@@ -5,6 +5,7 @@ import ProtectedRoute from "./components/protected-route/protected-route";
 import Home from "./components/home/Home";
 import OwnerHeader from "./components/owner-dashboard/owner-header/owner-header";
 import OwnerDashboard from "./components/owner-dashboard/owner-dashboard";
+import { PropertyRefreshProvider } from "./custom-hooks/refresh-properties";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           path="/owner/dashboard"
           element={
             <ProtectedRoute role="OWNER">
+              
               <OwnerDashboard />
+              
             </ProtectedRoute>
           }
         />
@@ -36,6 +39,7 @@ function App() {
 
         <Route path="/unauthorized" element={<h1>Unauthorized</h1>} />
 
+        <Route path="*" element={<h1>404 : PAGE NOT FOUND</h1>}></Route>
       </Routes>
 
       {/* <Route path="*" element={<h1>an authorized</h1>}></Route> */}
