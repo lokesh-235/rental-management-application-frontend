@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import OwnerHeader from "./owner-header/owner-header";
 import OwnerProperties from "./owner-properties/owner-properties";
 import TenantRequests from "./tenant-requests/tenant-requests";
-import Tenants from "./tenants/tenants";
+import Tenants from "./active-rentals/active-rentals";
 import "./owner-dashboard.css";
 import OwnerSidebar from "./sidebar/owner-sidebar";
 export default function OwnerDashboard() {

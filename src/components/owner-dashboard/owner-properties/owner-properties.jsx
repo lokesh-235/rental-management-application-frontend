@@ -30,6 +30,7 @@ export default function OwnerProperties({owner}) {
 
   useEffect(() => {
     loadProperties();
+    
   }, []);
 
   // Form input handler

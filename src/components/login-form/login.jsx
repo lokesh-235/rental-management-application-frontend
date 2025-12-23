@@ -69,7 +69,15 @@ export default function LoginForm() {
             />
 
             <button>Login</button>
-
+            <p>example login credentials</p>
+            <br />
+            <p>tenant login credentials : </p>
+            <p>email : tenant@gmail.com</p>
+            <p>password : tenant123</p>
+            <br />
+            <p>owner login credentials : </p>
+            <p>email : owner@gmail.com</p>
+            <p>password : owner123</p>
         </form>
     );
 }

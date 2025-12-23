@@ -57,7 +57,7 @@ export default function TenantDashboard() {
         {/* Switch Sections */}
         {activeTab === "recommended" && <RecommendedProperties />}
         {activeTab === "saved" && <SavedProperties />}
-        {activeTab === "current" && <CurrentRentals />}
+        {activeTab === "current" && <CurrentRentals  tenantId={user.userId}/>}
         {activeTab === "profile" && <TenantProfile />}
         {activeTab === "requested-properties" && <RequestedProperties tenantId={user.userId}/>}
       </main>

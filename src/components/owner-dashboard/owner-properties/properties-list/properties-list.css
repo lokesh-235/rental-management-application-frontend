@@ -1,0 +1,39 @@
+.property-list {
+  margin-top: 20px;
+}
+
+.property-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.primary-btn {
+  background: #0066ff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+}
+
+.edit-btn {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+}

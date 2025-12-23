@@ -3,9 +3,7 @@ import LoginForm from "./components/login-form/login";
 import TenantDashboard from "./components/tenant-dashboard/tenant-dashboard";
 import ProtectedRoute from "./components/protected-route/protected-route";
 import Home from "./components/home/Home";
-import OwnerHeader from "./components/owner-dashboard/owner-header/owner-header";
 import OwnerDashboard from "./components/owner-dashboard/owner-dashboard";
-import { PropertyRefreshProvider } from "./custom-hooks/refresh-properties";
 
 function App() {
   return (

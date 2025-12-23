@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTenantRequests} from "../../../apis/apis";
 import "./tenant-requests.css";
-import Requests from "../requests/requests";
+import Requests from "./requests/requests";
 
 export default function TenantRequests({ owner }) {
 

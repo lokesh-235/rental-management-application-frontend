@@ -1,0 +1,137 @@
+/* ===================== */
+/* RENT BOX STYLES */
+/* ===================== */
+
+.container {
+  margin-top: 20px;
+}
+
+.rentBox {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rentImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.payBtn {
+  padding: 10px 14px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.payBtn:hover {
+  background: #005fcc;
+}
+
+
+/* ===================== */
+/* PAYMENT MODAL */
+/* ===================== */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalBox {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.selectInput {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  margin-top: 10px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.confirmBtn {
+  background: green;
+  color: white;
+  padding: 10px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background: gray;
+  color: white;
+  padding: 10px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+/* ===================== */
+/* PAYMENT SUCCESS POPUP */
+/* ===================== */
+
+.successOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.successBox {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 5px solid #28a745;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.closeSuccessBtn {
+  background: #28a745;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+}

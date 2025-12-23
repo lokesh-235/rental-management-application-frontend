@@ -6,12 +6,11 @@ import RequestButton from "./request-button";
 import OwnerDetails from "./owner-details";
 import { getOwnerDetailsByPropertyId, postRequest } from "../../apis/apis";
 
-export default function PropertyCard({ property, onClose }) {
+export default function PropertyCard({ property, onClose ,isOwner}) {
   const [ownerDetails, setOwnerDetails] = useState(null);
   const [loadingOwner, setLoadingOwner] = useState(true);
   const user = JSON.parse(sessionStorage.getItem("user"));
   const isLoggedIn = !!user && user.role === 'TENANT';
-
   // Fetch owner details
   useEffect(() => {
     const fetchOwnerDetails = async () => {
@@ -26,13 +25,15 @@ export default function PropertyCard({ property, onClose }) {
       }
     };
     fetchOwnerDetails();
-  }, [property.propertyId]);
+  }, [property]);
 
   // Prevent background scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "auto");
   }, []);
+
+  
 
   let postTenantRequest = async (message) => {
     const res = await postRequest({
@@ -55,7 +56,7 @@ export default function PropertyCard({ property, onClose }) {
 
         <PropertyInfo property={property} />
 
-        <RequestButton isLoggedIn={isLoggedIn} postTenantRequest={postTenantRequest}/>
+        {!isOwner && <RequestButton isLoggedIn={isLoggedIn} postTenantRequest={postTenantRequest}/>}
 
         <OwnerDetails
           ownerDetails={ownerDetails}

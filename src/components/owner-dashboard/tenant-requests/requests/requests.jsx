@@ -1,4 +1,4 @@
-import { approveRequest, rejectRequest } from "../../../apis/apis";
+import { approveRequest, rejectRequest } from "../../../../apis/apis";
 
 export default function Requests({requests,loadRequests}) {
 

@@ -1,0 +1,121 @@
+/* Page container */
+.requested-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Title */
+.page-title {
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* Cards grid */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.property-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Status badges */
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.approved {
+  background: #e7f7ee;
+  color: #1e824c;
+}
+
+.status.rejected {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.status.pending {
+  background: #fff6e5;
+  color: #b9770e;
+}
+
+/* Property info */
+.type {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.address {
+  font-size: 14px;
+  color: #777;
+  margin: 6px 0 16px;
+}
+
+/* Amounts */
+.amounts {
+  display: flex;
+  justify-content: space-between;
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.amounts div {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #666;
+}
+
+.amounts strong {
+  font-size: 15px;
+  color: #111;
+}
+
+/* Message */
+.message {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Loading & empty */
+.loading,
+.empty {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
+  color: #666;
+}

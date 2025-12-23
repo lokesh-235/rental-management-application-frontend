@@ -11,6 +11,7 @@ export default function Properties() {
   const [properties, setProperties] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isViewDetails,setIsViewDetails] = useState(false);
+  const [viewProperty,setViewProperty] = useState({});
   const API_URL = import.meta.env.VITE_API_URL;
 
   async function loadProperties() {
@@ -35,9 +36,10 @@ export default function Properties() {
     };
   }, []);
 
-  let handleViewDetails = () => {
+  let handleViewDetails = (property) => {
     //  console.log('view details');
     setIsViewDetails(true);
+    setViewProperty(property);
   }
 
   return (
@@ -67,9 +69,9 @@ export default function Properties() {
 
               <p className="price">₹{property.rentAmount} / month</p>
 
-              <button onClick={handleViewDetails}>View Details</button>
+              <button onClick={()=>{handleViewDetails(property)}}>View Details</button>
 
-              {isViewDetails && <PropertyCard property={property}     onClose={() => setIsViewDetails(false)}/>}
+              {isViewDetails && <PropertyCard property={viewProperty}     onClose={() => setIsViewDetails(false)}/>}
             </div>
           </div>
         ))}
